@@ -1,0 +1,135 @@
+/* =========================================
+   TOAST NOTIFICATIONS
+========================================= */
+
+.toast {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    width: max-content;
+    min-width: 300px;
+    max-width: 420px;
+
+    padding: 16px 18px;
+
+    background: #ffffff;
+    color: #172033;
+
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #2563eb;
+    border-radius: 14px;
+
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.10),
+        0 3px 8px rgba(15, 23, 42, 0.04);
+
+    animation: toastSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================
+   SUCCESS TOAST
+========================================= */
+
+.toast-success {
+    border-left-color: #16a34a;
+}
+
+/* =========================================
+   ERROR TOAST
+========================================= */
+
+.toast-error {
+    border-left-color: #dc2626;
+}
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.toast-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+
+    margin-left: auto;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #64748b;
+
+    font-size: 22px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.toast-close:hover {
+    background: #f1f5f9;
+    color: #172033;
+    transform: rotate(90deg);
+}
+
+/* =========================================
+   TOAST ANIMATION
+========================================= */
+
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translate3d(24px, -8px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 480px) {
+    .toast {
+        top: 14px;
+        right: 14px;
+        left: 14px;
+
+        width: auto;
+        min-width: unset;
+        max-width: unset;
+
+        padding: 14px;
+        border-radius: 12px;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .toast,
+    .toast-close {
+        animation: none;
+        transition: none;
+    }
+}
